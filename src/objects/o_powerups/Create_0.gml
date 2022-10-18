@@ -1,13 +1,7 @@
 x = 540;
 y = 300;
 global.pwrs = false;
-a=0;
-b=0;
-c=0;
-d=0;
-e=0;
-f=0;
-g=0;
+powers = [0,0,0,0,0,0,0];
 ag = false;
 spr = false;
 if gm.autogun == 1 or gm.autogun == 0{
@@ -28,50 +22,50 @@ total = gm.p+gm.one+ag+gm.gumb+spr+gm.homing+gm.reflectdash;
 function PickPowerups(numb,xsval){
 	do{
 		if gm.p == true{
-			a = choose(0,0,1);
+			powers[0] = choose(0,0,1);
 		}if gm.one == true{
-			b = irandom_range(0,1);
+			powers[1] = irandom_range(0,1);
 		}if ag == true{
-			c = irandom_range(0,1);
+			powers[2] = irandom_range(0,1);
 		}if gm.gumb == true{
-			d = irandom_range(0,1);
+			powers[3] = irandom_range(0,1);
 		}if spr == true{
-			e = irandom_range(0,1);
+			powers[4] = irandom_range(0,1);
 		}if gm.reflectdash == true{
-			f = choose(0,0,1);
+			powers[5] = choose(0,0,1);
 		}if gm.homing == true{
-			g = irandom_range(0,1);
+			powers[6] = irandom_range(0,1);
 		}
-	}until a+b+c+d+e+f+g == numb;
+	}until powers[0]+powers[1]+powers[2]+powers[3]+powers[4]+powers[5]+powers[6] == numb;
 	xs = xsval;
 }
 
 function CreatePowerups(xsvalchk){
-	if a == 1{
+	if powers[0] == 1{
 		instance_create_layer(xs,y,"Instances",o_pierce);
 		xs += xsvalchk;
 	}
-	if b == 1{
+	if powers[1] == 1{
 		instance_create_layer(xs,y,"Instances",o_1up);
 		xs += xsvalchk;
 	}
-	if c == 1{
+	if powers[2] == 1{
 		instance_create_layer(xs,y,"Instances",o_autogunner);
 		xs += xsvalchk;
 	}
-	if d == 1{
+	if powers[3] == 1{
 		instance_create_layer(xs,y,"Instances",o_gumbus);
 		xs += xsvalchk;
 	}
-	if e == 1{
+	if powers[4] == 1{
 		instance_create_layer(xs,y,"Instances",o_spread);
 		xs += xsvalchk;
 	}
-	if f == 1{
+	if powers[5] == 1{
 		instance_create_layer(xs,y,"Instances",o_reflective);
 		xs += xsvalchk;
 	}
-	if g == 1{
+	if powers[6] == 1{
 		instance_create_layer(xs,y,"Instances",WIP);
 		xs += xsvalchk;
 	}
@@ -84,13 +78,13 @@ if total >= 3{
 }else if total == 1{
 	PickPowerups(1,540);
 }else if total <= 0{
-	b = 1;
+	powers[1] = 1;
 	xs = 540;
 }
 
 CreatePowerups(xs);
 	
-//Check o_wvae for the ideas ///// and set vars to true in gm
+//o_wvae has ideas ///// set vars to true in gm
 
 
 depth += 1;
