@@ -1,7 +1,4 @@
 {
-  "resourceType": "GMSound",
-  "resourceVersion": "1.0",
-  "name": "sndboom",
   "conversionMode": 0,
   "compression": 0,
   "volume": 0.74,
@@ -20,4 +17,8 @@
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
+  "resourceVersion": "1.0",
+  "name": "sndboom",
+  "tags": [],
+  "resourceType": "GMSound",
 }
