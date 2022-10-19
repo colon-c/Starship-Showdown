@@ -17,24 +17,16 @@ if gm.spread == 1 or gm.spread == 0{
 		}
 	}
 }
+powerusedcheck = [gm.p,gm.one,ag,gm.gumb,spr,gm.reflectdash,gm.homing];
+
 total = gm.p+gm.one+ag+gm.gumb+spr+gm.homing+gm.reflectdash;
 
 function PickPowerups(numb,xsval){
 	do{
-		if gm.p == true{
-			powers[0] = choose(0,0,1);
-		}if gm.one == true{
-			powers[1] = irandom_range(0,1);
-		}if ag == true{
-			powers[2] = irandom_range(0,1);
-		}if gm.gumb == true{
-			powers[3] = irandom_range(0,1);
-		}if spr == true{
-			powers[4] = irandom_range(0,1);
-		}if gm.reflectdash == true{
-			powers[5] = choose(0,0,1);
-		}if gm.homing == true{
-			powers[6] = irandom_range(0,1);
+		for (var i = 0; i < 7; i += 1){
+			if powerusedcheck[i] == true{
+				powers[i] = choose(0,1);
+			}
 		}
 	}until powers[0]+powers[1]+powers[2]+powers[3]+powers[4]+powers[5]+powers[6] == numb;
 	xs = xsval;
