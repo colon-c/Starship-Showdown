@@ -23,7 +23,7 @@ total = gm.p+gm.one+ag+gm.gumb+spr+gm.homing+gm.reflectdash;
 
 function PickPowerups(numb,xsval){
 	do{
-		for (var i = 0; i < 7; i += 1){
+		for (var i = 0; i < total; i += 1){
 			if powerusedcheck[i] == true{
 				powers[i] = choose(0,1);
 			}
